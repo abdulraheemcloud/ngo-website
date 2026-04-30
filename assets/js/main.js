@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Reveal Animation
+    // 1. Scroll Reveal Animation (பக்கத்தை ஸ்க்ரோல் செய்யும்போது எலிமெண்ட்கள் தோன்றும்)
     const revealElements = document.querySelectorAll('[data-reveal]');
     
     const revealOnScroll = () => {
@@ -13,20 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
+    revealOnScroll();
 
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    // 2. Mobile Menu Logic (மெனு பட்டன் வேலை செய்ய)
+    const initMobileMenu = () => {
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('open');
-        });
-    }
+        if (menuToggle && navLinks) {
+            menuToggle.onclick = () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open');
+            };
 
-    // Lazy Loading Images
+            // மெனு லிங்க்கை கிளிக் செய்தால் மெனு தானாக மூடிக்கொள்ளும்
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.onclick = () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                };
+            });
+        } else {
+            // Navbar லோட் ஆகவில்லை என்றால் மீண்டும் முயற்சி செய்யும்
+            setTimeout(initMobileMenu, 500);
+        }
+    };
+
+    initMobileMenu();
+
+    // 3. Lazy Loading Images
     const lazyImages = document.querySelectorAll('img[data-src]');
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
