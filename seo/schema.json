@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "HopeReach Foundation",
+  "url": "https://hopereach.org",
+  "logo": "https://hopereach.org/assets/images/logo.png",
+  "description": "Empowering communities through sustainable development, education, and healthcare initiatives.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Green Valley Road",
+    "addressLocality": "New Delhi",
+    "addressRegion": "Delhi",
+    "postalCode": "110001",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-98765-43210",
+    "contactType": "customer service"
+  },
+  "sameAs": [
+    "https://www.facebook.com/hopereach",
+    "https://www.twitter.com/hopereach",
+    "https://www.instagram.com/hopereach"
+  ]
+}

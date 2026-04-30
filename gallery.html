@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | HopeReach Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Impact in Pictures</h1>
+            <p>Visual stories of hope and transformation.</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Education Program" class="lightbox-trigger">
+                    <div class="gallery-overlay"><span>Education</span></div>
+                </div>
+                <div class="gallery-item" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="Health Camp" class="lightbox-trigger">
+                    <div class="gallery-overlay"><span>Healthcare</span></div>
+                </div>
+                <div class="gallery-item" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Water Project" class="lightbox-trigger">
+                    <div class="gallery-overlay"><span>Clean Water</span></div>
+                </div>
+                <div class="gallery-item" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=600&q=80" alt="Community Meeting" class="lightbox-trigger">
+                    <div class="gallery-overlay"><span>Community</span></div>
+                </div>
+                <div class="gallery-item" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" alt="Youth Workshop" class="lightbox-trigger">
+                    <div class="gallery-overlay"><span>Youth</span></div>
+                </div>
+                <div class="gallery-item" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=600&q=80" alt="Food Distribution" class="lightbox-trigger">
+                    <div class="gallery-overlay"><span>Nutrition</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp.js"></script>
+    <script>
+        async function loadComponent(id, path) {
+            const response = await fetch(path);
+            const text = await response.text();
+            document.getElementById(id).innerHTML = text;
+        }
+        loadComponent('navbar-placeholder', 'components/navbar.html');
+        loadComponent('footer-placeholder', 'components/footer.html');
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const captionText = document.getElementById('caption');
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+        const closeBtn = document.querySelector('.close-lightbox');
+
+        triggers.forEach(img => {
+            img.onclick = function() {
+                lightbox.style.display = "block";
+                lightboxImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+
+        closeBtn.onclick = function() {
+            lightbox.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == lightbox) {
+                lightbox.style.display = "none";
+            }
+        }
+    </script>
+
+    <style>
+        .page-header { background: var(--primary-color); color: var(--white); text-align: center; padding: 60px 0; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px 0; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 10px; cursor: pointer; height: 250px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(46, 125, 50, 0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span { color: var(--white); font-weight: 600; font-size: 1.2rem; }
+
+        /* Lightbox Styles */
+        .lightbox { display: none; position: fixed; z-index: 2000; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .lightbox-content { margin: auto; display: block; width: 80%; max-width: 700px; border-radius: 10px; }
+        #caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; }
+        .close-lightbox { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+        @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+    </style>
+</body>
+</html>

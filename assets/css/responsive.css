@@ -1,0 +1,44 @@
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Mobile menu logic in JS */
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--text-dark);
+        margin: 5px 0;
+        transition: var(--transition);
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeReach Foundation | Empowering Lives, Building Futures</title>
+    <meta name="description" content="HopeReach Foundation is a premium NGO dedicated to sustainable development, education, and healthcare for underprivileged communities.">
+    
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="HopeReach Foundation | Empowering Lives">
+    <meta property="og:description" content="Join us in our mission to create a better world through education and healthcare.">
+    <meta property="og:image" content="assets/images/hero/og-image.jpg">
+    <meta property="og:url" content="https://hopereach.org">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- Navbar Placeholder (In production, use a static site generator or simple PHP include) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Empowering Communities <br><span>For a Brighter Tomorrow</span></h1>
+                <p>We provide education, healthcare, and sustainable livelihood opportunities to those who need it most.</p>
+                <div class="hero-btns">
+                    <a href="services.html" class="btn-primary">Our Programs</a>
+                    <a href="contact.html" class="btn-secondary">Get Involved</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" data-reveal>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>Children Educated</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Villages Impacted</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Active Volunteers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$1M+</h3>
+                    <p>Funds Raised</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Preview -->
+    <section class="programs">
+        <div class="container">
+            <div class="section-title" data-reveal>
+                <h2>Our Core Programs</h2>
+                <p>We focus on long-term impact through structured initiatives.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="card program-card" data-reveal>
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Education">
+                    </div>
+                    <div class="card-content">
+                        <h3>Quality Education</h3>
+                        <p>Providing books, uniforms, and digital learning tools to rural schools.</p>
+                        <a href="services.html" class="read-more">Learn More →</a>
+                    </div>
+                </div>
+                <div class="card program-card" data-reveal>
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="Healthcare">
+                    </div>
+                    <div class="card-content">
+                        <h3>Healthcare Access</h3>
+                        <p>Mobile clinics and health camps for remote communities.</p>
+                        <a href="services.html" class="read-more">Learn More →</a>
+                    </div>
+                </div>
+                <div class="card program-card" data-reveal>
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Environment">
+                    </div>
+                    <div class="card-content">
+                        <h3>Clean Water</h3>
+                        <p>Installing solar-powered water pumps and filtration systems.</p>
+                        <a href="services.html" class="read-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials bg-light">
+        <div class="container">
+            <div class="section-title" data-reveal>
+                <h2>Voices of Impact</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card" data-reveal>
+                    <span class="quote">"</span>
+                    <p>HopeReach changed my life. Thanks to their scholarship, I am now the first college graduate in my family.</p>
+                    <div class="author">
+                        <strong>Anjali Sharma</strong>
+                        <span>Beneficiary</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp.js"></script>
+    <script>
+        // Simple component loader for demo purposes
+        async function loadComponent(id, path) {
+            const response = await fetch(path);
+            const text = await response.text();
+            document.getElementById(id).innerHTML = text;
+        }
+        loadComponent('navbar-placeholder', 'components/navbar.html');
+        loadComponent('footer-placeholder', 'components/footer.html');
+    </script>
+
+    <!-- Inline Hero Styles for Index -->
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero h1 span { color: var(--primary-light); }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+        .hero-btns { display: flex; justify-content: center; gap: 20px; }
+        .btn-secondary { border: 2px solid var(--white); color: var(--white); padding: 12px 28px; border-radius: 50px; font-weight: 600; }
+        .btn-secondary:hover { background: var(--white); color: var(--primary-color); }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; background: var(--white); padding: 40px; border-radius: 15px; box-shadow: var(--shadow); margin-top: -60px; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary-color); }
+        
+        .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .card-img img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 25px; }
+        .card-content h3 { margin-bottom: 15px; }
+        .read-more { color: var(--primary-color); font-weight: 600; }
+        
+        .bg-light { background: var(--bg-light); }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
+            .programs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</body>
+</html>
